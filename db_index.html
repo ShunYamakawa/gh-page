@@ -35,7 +35,7 @@
     // CSVファイルの取得
     var csvData = new Array();
     var data = new XMLHttpRequest();
-    var dir = location.href.split("index.html")[0];
+    var dir = location.href.split("db_index.html")[0];
     var filePath = dir + 'csv/index.csv'
     var decode1 = decodeURI(filePath);
     data.open("GET", decode1+"?"+(new Date()).getTime(), true); //true:非同期,false:同期
