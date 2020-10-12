@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>テーブル名</title>
+  </head>
+  <body>
+    <h3>テーブル概要</h3>
+    <table border="1" id="table-title">
+      <thead>
+        <tr>
+          <th>物理名</th>
+          <th>論理名</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <hr>
+    <h3>テーブル詳細</h3>
+    <table border="1" id="table-detail">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>物理名</th>
+          <th>論理名</th>
+          <th>桁数(全体)</th>
+          <th>桁数(小数)</th>
+          <th>データ型</th>
+          <th>PK</th>
+          <th>ユニーク</th>
+          <th>NotNull</th>
+          <th>属性</th>
+          <th>FK(テーブル)</th>
+          <th>FK(カラム)</th>
+          <th>初期値</th>
+          <th>INDEX</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  <script type="text/javascript">
+    // タグ内にjavascriptコードを直接記述します。
+    console.log("JavaScriptを実行しています");
+    
+    // クエリ文の取得とタイトルの変更
+    var url = window.location.href;
+    var regex = new RegExp("[?&]id(=([^&#]*)|&|#|$)"),results = regex.exec(url);
+    document.title=results[2];
+    
+    // CSVファイルの取得
+    var csvData = new Array();
+    var data = new XMLHttpRequest();
+    var dir = location.href.split("detail.html")[0];
+    var filePath = dir + 'csv/' + document.title + '.csv'
+    var decode1 = decodeURI(filePath);
+    data.open("GET", decode1+"?"+(new Date()).getTime(), true); //true:非同期,false:同期
+    data.send(null);
+    data.onreadystatechange = function(){
+      if ( (data.readyState == 4) && (data.response !== '') ){
+        // ファイル内容読み込み
+        let lines = data.response.split(/\r?\n/);
+        let items = lines.map( line => line.split(",") );
+        let first = true;
+        
+        for( var i=0; i<lines.length; i++) {
+          let table;
+          let newRow;
+          if( i == 0 ) {
+            table = document.getElementById('table-title');
+            newRow = table.insertRow();
+          } else {
+            table = document.getElementById('table-detail');
+            newRow = table.insertRow();
+          }
+          lines[i].split(",").forEach(item => {
+            let newCell = newRow.insertCell();
+            let newText = document.createTextNode(item);
+            newCell.appendChild(newText);
+          });
+        }
+      }
+    }
+  </script>
+  </body>
+</html>
