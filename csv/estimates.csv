@@ -1,0 +1,26 @@
+estimates,見積,-
+1,id,ID,,,BIGSERIAL,1,○,○,,,,0,,-
+2,user_id,顧客コード,,,BIGSERIAL,,,,,user,id,,1,-
+3,car_id,車両ID,,,BIGSERIAL,,,,,car,id,,2,-
+4,reservation_no,予約NO,,,INT,,,,,,,,3,-
+5,no,見積NO,,,INT,,,,,,,,4,-
+6,name,見積名称,50,,NVARCHAR,,,,,,,,,-
+7,determined_on,見積確定日,10,,NVARCHAR,,,,,,,,,-
+8,tax_cost,課税諸費用,5,2,DECIMAL,,,,,,,,,-
+9,non_tax_cost,非課税諸費用,5,2,DECIMAL,,,,,,,,,-
+10,maintenance_fee,整備代,,,INT,,,,,,,,,-
+11,liability_fee,自賠責保険料,,,INT,,,,,,,,,-
+12,weight_fee,重量税印紙税,,,INT,,,,,,,,,-
+13,consumption_tax,消費税,5,2,DECIMAL,,,,,,,,,-
+14,total_fee,合計金額,,,INT,,,,,,,,,-
+15,status,見積状況,50,,NVARCHAR,,,,,,,,,-
+16,status_detail,見積状況_詳細,500,,NVARCHAR,,,,,,,,,-
+17,confirm_status,確認状況,50,,NVARCHAR,,,,,,,,,-
+18,note_1,申し送り事項１,500,,NVARCHAR,,,,,,,,,-
+19,note_2,申し送り事項２,500,,NVARCHAR,,,,,,,,,-
+20,add_ap_flg,AP加入フラグ,,,INT,,,,,,,,,共通フラグ値：「0：false / 1：True」
+21,add_wc_flg,WC加入フラグ,,,INT,,,,,,,,,共通フラグ値：「0：false / 1：True」
+22,add_oil_flg,オイル会員加入フラグ,,,INT,,,,,,,,,共通フラグ値：「0：false / 1：True」
+23,contact_user_name,整備内容連絡_顧客名,50,,NVARCHAR,,,,,,,,,
+24,contact_user_tell,整備内容連絡_連絡先,50,,NVARCHAR,,,,,,,,,
+25,contact_user_mail,整備内容連絡_メール,50,,NVARCHAR,,,,,,,,,
