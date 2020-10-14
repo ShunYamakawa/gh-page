@@ -22,21 +22,24 @@
           <td>0</td>
           <td>テーブル名</td>
           <td>テーブルID</td>
-          <td><input type="button" onclick="jump('temp_val')" value="詳細"/></td>
+          <td><input type="button" onclick="openToDbDetail('temp_val')" value="詳細"/></td>
           <td>親テーブル</td>
           <td>説明</td>
         </tr>
       </tbody>
     </table>
+    <form name="myForm">
+      <input type="hidden" name="myScreen" value="db_index.html">
+    </form>
   <script type="text/javascript">
     // タグ内にjavascriptコードを直接記述します。
-    console.log("JavaScriptを実行しています");
+    const myScreen = document.myForm.myScreen.value;
     
     // CSVファイルの取得
     var csvData = new Array();
     var data = new XMLHttpRequest();
-    var dir = location.href.split("db_index.html")[0];
-    var filePath = dir + 'csv/index.csv'
+    var dir = location.href.split(myScreen)[0];
+    var filePath = dir + 'db/db_list.csv'
     var decode1 = decodeURI(filePath);
     data.open("GET", decode1+"?"+(new Date()).getTime(), true); //true:非同期,false:同期
     data.send(null);
@@ -67,9 +70,10 @@
       }
     }
 
-    function jump(id){
-      var dir = location.href.split("db_index.html")[0];
-      window.open(dir + 'db_detail.html?id=' + id, '_blank');
+    function openToDbDetail(id){
+      const myScreen = document.myForm.myScreen.value;
+      var dir = location.href.split(myScreen)[0];
+      window.open(dir + 'detail.html?id=' + id, '_blank');
     }
   </script>
   </body>
