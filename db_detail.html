@@ -42,9 +42,12 @@
       <tbody>
       </tbody>
     </table>
+    <form name="myForm">
+      <input type="hidden" name="myScreen" value="db_index.html">
+    </form>
   <script type="text/javascript">
     // タグ内にjavascriptコードを直接記述します。
-    console.log("JavaScriptを実行しています");
+    const myScreen = document.myForm.myScreen.value;
     
     // クエリ文の取得とタイトルの変更
     var url = window.location.href;
@@ -54,8 +57,8 @@
     // CSVファイルの取得
     var csvData = new Array();
     var data = new XMLHttpRequest();
-    var dir = location.href.split("db_detail.html")[0];
-    var filePath = dir + 'csv/' + document.title + '.csv'
+    var dir = location.href.split(myScreen)[0];
+    var filePath = dir + 'db/' + document.title + '.csv'
     var decode1 = decodeURI(filePath);
     data.open("GET", decode1+"?"+(new Date()).getTime(), true); //true:非同期,false:同期
     data.send(null);
