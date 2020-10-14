@@ -1,0 +1,6 @@
+SearchReservationRequest,予約情報検索リクエスト,予約情報検索API用のリクエストクラス
+1,targetAtFrom,検索対象日時(From),String,-,○,-,-,yyyy-mm-dd hh:mm:00,-,-
+2,targetAtTo,検索対象日時(To),String,-,○,-,-,yyyy-mm-dd hh:mm:00,-,-
+3,checkCategory,点検区分,String,-,-,-,-,-,-,「01:車検 / 02:6か月点検 / ...」
+4,entryFlg,入庫表示フラグ,int,-,-,-,-,-,-,-
+5,exitFlg,出庫表示フラグ,int,-,-,-,-,-,-,-

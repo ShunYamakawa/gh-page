@@ -1,0 +1,10 @@
+entryInfo,入出庫一覧,-
+-,検索条件,-,-,-,-,-,-,-,-
+1,検索条件,テキストボックス,日付(From),dateFrom,String,-,-,-,-
+2,検索条件,テキストボックス,日付(to),dateFrom,String,-,-,-,-
+3,検索条件,プルダウンリスト,点検区分,checkCategory,String,-,-,-,-
+4,検索条件,チェックボックス,入庫情報,entry,String,-,-,-,-
+5,検索条件,チェックボックス,出庫情報,exit,String,-,-,-,-
+6,検索条件,ボタン,検索,searchButton,Action,-,-,-,-
+7,検索条件,ボタン,本日入出庫,searchTodayEntryAndExit,Action,-,-,-,-
+8,検索条件,ボタン,翌日入庫,searchNextEntry,Action,-,-,-,-

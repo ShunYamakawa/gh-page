@@ -1,0 +1,2 @@
+1,見積,estimates,LINK,顧客/車両/受付,-
+2,見積明細,estimate_details,LINK,見積,TOMCATに変更情報を連携する用のテーブル？

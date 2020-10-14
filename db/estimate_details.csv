@@ -1,0 +1,15 @@
+estimate_details,見積明細,-
+1,id,ID,,,BIGSERIAL,1,○,○,,,,0,,-
+2,user_id,顧客コード,,,BIGSERIAL,,,,,user,id,,1,必要？：親の見積ID持たせればよいのでは？
+3,car_id,車両ID(PK),,,BIGSERIAL,,,,,car,id,,2,必要？：親の見積ID持たせればよいのでは？
+4,reservation_no,予約NO(PK),,,INT,,,,,,,,3,必要？：親の見積ID持たせればよいのでは？
+5,item_no,作業連番(PK),,,INT,,,,,,,,4,
+6,name,作業・部品名,50,,NVARCHAR,,,,,,,,,
+7,count,数量　,5,2,DECIMAL,,,,,,,,,
+8,unit,単位,50,,NVARCHAR,,,,,,,,,
+9,parts_cost,部品単価,,,INT,,,,,,,,,
+10,parts_fee,部品代,,,INT,,,,,,,,,
+11,technic_fee,技術代,,,INT,,,,,,,,,
+12,privilege_type,特典区分,50,,NVARCHAR,,,,,,,,,
+13,privilege_name,特典名称,50,,NVARCHAR,,,,,,,,,
+14,price,金額,,,INT,,,,,,,,,

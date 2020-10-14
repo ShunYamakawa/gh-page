@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>IF名</title>
+  </head>
+  <body>
+    <h3>IF概要</h3>
+    <table border="1" id="table-title">
+      <thead>
+        <tr>
+          <th>物理名</th>
+          <th>論理名</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <hr>
+    <h3>IF詳細</h3>
+    <table border="1" id="table-detail">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>物理名</th>
+          <th>論理名</th>
+          <th>データ型</th>
+          <th>List</th>
+          <th>必須</th>
+          <th>MIN</th>
+          <th>MAX</th>
+          <th>Format</th>
+          <th>LINK</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="temp">
+          <td>0</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><input type="button" onclick="jumpToIfDetail('temp_val')" value="詳細"/></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <form name="myForm">
+      <input type="hidden" name="myScreen" value="if_detail.html">
+    </form>
+  <script type="text/javascript">
+    // タグ内にjavascriptコードを直接記述します。
+    const myScreen = document.myForm.myScreen.value;
+    
+    // クエリ文の取得とタイトルの変更
+    var url = window.location.href;
+    var regex = new RegExp("[?&]id(=([^&#]*)|&|#|$)"),results = regex.exec(url);
+    document.title=results[2];
+    
+    // CSVファイルの取得
+    var csvData = new Array();
+    var data = new XMLHttpRequest();
+    var dir = location.href.split(myScreen)[0];
+    var filePath = dir + 'if/' + document.title + '.csv'
+    var decode1 = decodeURI(filePath);
+    data.open("GET", decode1+"?"+(new Date()).getTime(), true); //true:非同期,false:同期
+    data.send(null);
+    data.onreadystatechange = function(){
+      if ( (data.readyState == 4) && (data.response !== '') ){
+        // ファイル内容読み込み
+        let lines = data.response.split(/\r?\n/);
+        let items = lines.map( line => line.split(",") );
+        let first = true;
+        
+        var table = document.getElementById('table-title');
+        var newRow = table.insertRow();
+        lines[0].split(",").forEach(item => {
+          let newCell = newRow.insertCell();
+          let newText = document.createTextNode(item);
+          newCell.appendChild(newText);
+        });
+
+        tempRow = document.getElementById("temp");;
+        for( var i=1; i<lines.length; i++) {
+          table = document.getElementById('table-detail');
+          let clone = tempRow.cloneNode(true);
+          clone.id = lines[i].split(",")[1];
+
+          for( var k=0; k<clone.cells.length; k++ ) {
+            if ( k == 9 && lines[i].split(",")[9] == 'LINK' ) {
+              let inHtml = clone.cells[k].innerHTML;
+              clone.cells[k].innerHTML = inHtml.replace( 'temp_val', lines[i].split(",")[3] );
+            } else {
+              clone.cells[k].innerText = lines[i].split(",")[k];
+            }
+          }
+          
+          newRow = table.appendChild(clone);
+        }
+        tempRow.style.display ="none";
+      }
+    }
+
+    function jumpToIfDetail(id){
+      const myScreen = document.myForm.myScreen.value;
+      var dir = location.href.split(myScreen)[0];
+      window.location.assign(dir + 'if_detail.html?id=' + id);
+    }
+  </script>
+  </body>
+</html>

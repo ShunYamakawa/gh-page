@@ -1,0 +1,7 @@
+1,SearchReservationRequest,予約情報検索リクエスト,LINK,予約情報検索API用のリクエストクラス
+2,SearchReservationResponse,予約情報検索レスポンス,LINK,予約情報検索API用のレスポンスクラス
+3,InsertReservationRequest,予約情報登録リクエスト,LINK,「登録」は「INSERT」開始
+4,UpdateReservationRequest,予約情報更新リクエスト,LINK,「更新」は「update」開始
+5,SaveReservationRequest,予約情報保存リクエスト,LINK,「なければ登録」「あれば更新」のような場合は「保存：save」を利用
+6,GetReservationRequest,予約情報検索リクエスト,LINK,「(単一)取得：get」「(複数)検索：search」を使い分ける
+7,ErrorInfoResponse,共通エラーレスポンス,LINK,「バリデーションNG」「排他NG」等はこのクラスにまとめる

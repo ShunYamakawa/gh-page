@@ -1,0 +1,5 @@
+1,Reservation,予約,SearchReservation,予約検索処理,LINK,[ドメイン]/api/reservation/search,SearchReservationRequest,LINK,SearchReservationResponse,LINK,検索条件を指定して予約情報を複数件取得する
+2,Reservation,予約,InsertReservation,予約登録処理,LINK,[ドメイン]/api/reservation/insert,InsertReservationRequest,LINK,InsertReservationResponse,LINK,APIは動詞（INSERT：登録）はじまり
+3,Reservation,予約,UpdateReservation,予約更新処理,LINK,[ドメイン]/api/reservation/update,UpdateReservationRequest,LINK,UpdateReservationResponse,LINK,APIは動詞（UPDATE：更新）はじまり
+4,Reservation,予約,SaveReservation,予約保存処理,LINK,[ドメイン]/api/reservation/save,SaveReservationRequest,LINK,SaveReservationResponse,LINK,APIは動詞（Save：保存）はじまり
+5,Reservation,予約,GetReservation,予約取得処理,LINK,[ドメイン]/api/reservation/save,GetReservationRequest,LINK,GetReservationResponse,LINK,APIは動詞（Get：取得）はじまり

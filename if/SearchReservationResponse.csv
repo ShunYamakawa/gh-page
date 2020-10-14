@@ -1,0 +1,3 @@
+SearchReservationResponse,予約情報検索レスポンス,予約情報検索API用のレスポンスクラス
+1,errorInfo,エラー情報,ErrorInfoResponse,-,-,-,-,-,LINK,-
+2,reservationSearchResultModel,予約情報検索結果モデル,ReservationSearchResultModel,○,-,-,-,-,LINK,-

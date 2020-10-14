@@ -1,0 +1,6 @@
+ReservationSearchResultModel,予約情報検索結果モデル,-
+1,targetDate,対象日付,String,-,-,-,-,yyyy-mm-dd,-,-
+2,targetTime,対象時間,String,-,-,-,-,hh:mm,-,-
+3,userCategory,顧客区分,String,-,-,-,-,-,-,-
+4,userName,顧客氏名,String,-,-,-,-,-,-,-
+5,numberPlate,ナンバープレート,String,-,-,-,-,-,-,-
